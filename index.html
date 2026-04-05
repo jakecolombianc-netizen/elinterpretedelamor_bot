@@ -16,7 +16,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Aura mística */
+/* Aura */
 body::before {
     content: "";
     position: fixed;
@@ -50,28 +50,31 @@ body::after {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 120px 20px;
+    padding: 120px 20px 60px;
 }
 
 .hero h1 {
     font-family: 'Cinzel', serif;
-    font-size: 3.2em;
-    letter-spacing: 4px;
+    font-size: 3em;
     color: #e0c3fc;
-    text-shadow: 0 0 10px rgba(138,43,226,0.8),
-                 0 0 20px rgba(138,43,226,0.6);
 }
 
-.hero p {
-    max-width: 600px;
-    margin: auto;
-    font-size: 1.2em;
-    opacity: 0.9;
+/* IMAGEN */
+.imagen-mistica {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.imagen-mistica img {
+    width: 95%;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(138,43,226,0.6);
 }
 
 /* SECCIONES */
 .section {
-    padding: 70px 20px;
+    padding: 60px 20px;
     text-align: center;
 }
 
@@ -80,47 +83,37 @@ h2 {
     color: #e0c3fc;
 }
 
-/* FORMULARIO */
+/* FORM */
 form {
     max-width: 500px;
     margin: auto;
     background: rgba(255,255,255,0.05);
     padding: 25px;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 25px rgba(138,43,226,0.2);
 }
 
 input, textarea, select {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: none;
     border-radius: 10px;
+    border: none;
     background: rgba(255,255,255,0.1);
     color: white;
 }
 
-input::placeholder, textarea::placeholder {
-    color: rgba(255,255,255,0.6);
+select option {
+    color: black;
 }
 
 /* BOTÓN */
 button {
     padding: 14px;
-    border: none;
     border-radius: 30px;
     background: linear-gradient(45deg, #8a2be2, #4b0082);
     color: white;
+    border: none;
     cursor: pointer;
-    width: 100%;
-    box-shadow: 0 0 15px rgba(138,43,226,0.6);
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(138,43,226,1);
 }
 
 footer {
@@ -135,8 +128,13 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-    <h1>Lecturas Psíquicas</h1>
+    <h1>Lectura Psíquica para Mascotas con Emmanuel</h1>
     <p>Descubre los mensajes ocultos del universo y conecta con tu destino.</p>
+</div>
+
+<!-- IMAGEN MÍSTICA -->
+<div class="imagen-mistica">
+    <img src="mistico.jpg" alt="Lectura mística con mascotas y universo">
 </div>
 
 <!-- SERVICIO -->
@@ -144,12 +142,13 @@ footer {
     <h2>¿Qué es una lectura psíquica?</h2>
     <p>
         Es un espacio de conexión espiritual donde se interpretan energías,
-        emociones y caminos posibles para tu vida. Recibe guía en el amor,
-        decisiones y crecimiento personal.
+        emociones y caminos posibles para tu vida. También se realizan lecturas
+        para mascotas, tanto aquellas que aún nos acompañan como aquellas que ya han partido,
+        permitiendo recibir mensajes, sanar vínculos y encontrar paz.
     </p>
 </div>
 
-<!-- FORMULARIO -->
+<!-- FORM -->
 <div class="section">
     <h2>Reserva tu sesión</h2>
 
@@ -161,7 +160,9 @@ footer {
             <option value="">Tipo de consulta</option>
             <option>Amor</option>
             <option>Trabajo</option>
-            <option>Espiritual</option>
+            <option>Pareja</option>
+            <option>Sueños</option>
+            <option>Animales</option>
         </select>
 
         <textarea id="mensaje" placeholder="Cuéntame tu situación"></textarea>
@@ -183,7 +184,7 @@ function enviarWhatsApp(event) {
     let tipo = document.getElementById("tipo").value;
     let mensaje = document.getElementById("mensaje").value;
 
-    let texto = `Hola, quiero reservar una lectura psíquica:%0A
+    let texto = `Hola, quiero reservar una lectura:%0A
 Nombre: ${nombre}%0A
 Correo: ${correo}%0A
 Tipo: ${tipo}%0A
